@@ -5,9 +5,9 @@ echo "Version: $COMMIT_VERSION - $COMMIT_TIME"
 echo "----------------"
 
 # Wait for InfluxDB
-until nc -z -v -w30 "$INFLUX_HOST" 8086
+until nc -z -v -w30 "$INFLUX_HOST" $INFLUX_PORT
 do
-  echo "Waiting for InfluxDB on $INFLUX_HOST:8086 ..."
+  echo "Waiting for InfluxDB on $INFLUX_HOST:$INFLUX_PORT ..."
   sleep 1
 done
 echo "InfluxDB is up and running!"
